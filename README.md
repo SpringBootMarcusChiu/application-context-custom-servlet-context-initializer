@@ -11,4 +11,4 @@
   - http://localhost:8080/api/2/
 
 ## Confluence Article
-- [http://confluence.marcuschiu.com/article](http://confluence.marcuschiu.com/display/NOT/Java+-+Spring+-+Application+Context+Hierarchy)
+- [http://confluence.marcuschiu.com/article](http://confluence.marcuschiu.com/display/NOT/Java+-+Spring+-+Application+Context+-+ServletContextInitializer)

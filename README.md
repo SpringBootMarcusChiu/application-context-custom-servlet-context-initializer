@@ -8,7 +8,7 @@
         - <code>./mvnw clean compile</code>
         - <code>./mvnw spring-boot:run</code>
 - open browser:
-  - http://localhost:8080/api/2/
+  - http://localhost:8080/
 
 ## Confluence Article
 - [http://confluence.marcuschiu.com/article](http://confluence.marcuschiu.com/display/NOT/Java+-+Spring+-+Application+Context+-+ServletContextInitializer)

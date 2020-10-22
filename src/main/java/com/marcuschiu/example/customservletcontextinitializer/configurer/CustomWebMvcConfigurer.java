@@ -1,14 +1,14 @@
-package com.marcuschiu.example.customservletcontextinitializer.config;
+package com.marcuschiu.example.customservletcontextinitializer.configurer;
 
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
-@EnableWebMvc
-@Configuration
-@ComponentScan(basePackages = "com.marcuschiu.example.customservletcontextinitializer")
-public class CustomWebMvcConfigurer implements WebMvcConfigurer {
+//@Configuration // used when this class contains @Bean's
+@EnableWebMvc // used with @Controller
+@ComponentScan(basePackages = "com.marcuschiu.example.customservletcontextinitializer.configurer")
+public class CustomWebMvcConfigurer { //implements WebMvcConfigurer {
 //    @Bean
 //    public ViewResolver getViewResolver() {
 //        InternalResourceViewResolver resolver = new InternalResourceViewResolver();

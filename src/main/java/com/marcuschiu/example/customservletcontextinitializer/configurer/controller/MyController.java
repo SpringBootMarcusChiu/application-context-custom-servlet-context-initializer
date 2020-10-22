@@ -1,4 +1,4 @@
-package com.marcuschiu.example.customservletcontextinitializer.controller;
+package com.marcuschiu.example.customservletcontextinitializer.configurer.controller;
 
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;

@@ -1,6 +1,6 @@
 package com.marcuschiu.example.customservletcontextinitializer.servlet;
 
-import com.marcuschiu.example.customservletcontextinitializer.config.CustomWebMvcConfigurer;
+import com.marcuschiu.example.customservletcontextinitializer.configurer.CustomWebMvcConfigurer;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.web.servlet.ServletContextInitializer;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
@@ -20,14 +20,16 @@ import javax.servlet.ServletRegistration;
 public class CustomServletContextInitializer implements ServletContextInitializer {
 
     public void onStartup(ServletContext rootServletContext) {
-        // create sub WebServlet
-        AnnotationConfigWebApplicationContext webServlet = new AnnotationConfigWebApplicationContext();
-        webServlet.register(CustomWebMvcConfigurer.class);
-        webServlet.setServletContext(rootServletContext);
+        System.out.println("Root ServletContext - server info: " + rootServletContext.getServerInfo());
+        System.out.println("Root ServletContext - name: " + rootServletContext.getServletContextName());
 
-        // add WebServlet to RootServlet
-        ServletRegistration.Dynamic servlet = rootServletContext.addServlet("dispatcherExample", new DispatcherServlet(webServlet));
+        // create a type of WebApplicationContext
+        AnnotationConfigWebApplicationContext webAppContext = new AnnotationConfigWebApplicationContext();
+        webAppContext.register(CustomWebMvcConfigurer.class); // register component classes
+        webAppContext.setServletContext(rootServletContext);  // set
 
+        // add a DispatcherServlet to ServletContextInitializer
+        ServletRegistration.Dynamic servlet = rootServletContext.addServlet("Dispatcher Name Here", new DispatcherServlet(webAppContext));
         servlet.setLoadOnStartup(1);
         servlet.addMapping("/");
     }
